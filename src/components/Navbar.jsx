@@ -41,7 +41,7 @@ const Navbar = () => {
                             setShowNavbar(!showNavbar)
                         }}>
                             <span className={`transition-transform duration-200 border-2 ${showNavbar ? 'rotate-45' : 'static rotate-0'}`}></span>
-                            <span className={`transition-transform duration-200 border-2 ${showNavbar ? '-rotate-45' : 'rotate-0'}`}></span>
+                            <span className={`transition-transform duration-200 border-2 ${showNavbar ? '-rotate-45 absolute w-[22px]' : 'rotate-0'}`}></span>
                         </div>
                     </div>
                 </div>
