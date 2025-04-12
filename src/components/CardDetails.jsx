@@ -7,8 +7,10 @@ import Footer from '../components/Footer'
 import WishlistContext from '../context/WishlistContext';
 import LoadingEffect from '../components/LoadingEffect'
 import { motion } from "motion/react"
+import ThemeContext from '../context/ThemeContext';
 
 const CardDetails = () => {
+    const { darkTheme } = useContext(ThemeContext);
     const navigate = useNavigate();
     const { addToWishlist } = useContext(WishlistContext);
     const { id } = useParams();
@@ -63,6 +65,13 @@ const CardDetails = () => {
                             <p className='flex lg:justify-start gap-8  justify-between'>Engine: <span className='font-normal'>{data.engine}</span></p>
                             <p className='flex lg:justify-start gap-8  justify-between'>Horsepower: <span className='font-normal'>{data.horsepower}</span></p>
                             <p className='flex lg:justify-start gap-8 justify-between'>Owners: <span className='font-normal'>{data.owners}</span></p>
+                            <div className='flex flex-wrap gap-2 lg:flex-col lg:justify-start justify-between'>Features:
+                                <div className='flex gap-2 flex-wrap'>
+                                    {data.features.map(function (f, i) {
+                                        return <span className={`${darkTheme ? 'bg-[#1f2937]' : 'bg-[#d7e2ee]'} font-normal text-[16px] px-4 py-1 rounded-2xl flex justify-center items-center`} key={i} >{f}</span>
+                                    })}
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
                     <div className='flex gap-2 lg:px-50 px-5 pt-20 lg:justify-start justify-center flex-wrap'>
